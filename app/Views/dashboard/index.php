@@ -148,6 +148,18 @@
                                 <p>Social Media</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('struktur-organisasi') ?>" class="nav-link <?= strpos(current_url(), 'struktur-organisasi') !== false ? 'active' : '' ?>">
+                                <i class="nav-icon fas fa-sitemap"></i>
+                                <p>Struktur Organisasi</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-cog"></i>
+                                <p>Pengaturan</p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -161,10 +173,10 @@
         </div>
 
         <footer class="main-footer">
-            <div class="float-right d-none d-sm-block">
+            <div class="float-right d-none d-sm-block
                 <b>Version</b> 1.0.0
             </div>
-            <strong>Copyright &copy; 2024 <a href="#">BEM FST</a>.</strong> All rights reserved.
+            <strong>Copyright &copy; 2024 <a href=" #">BEM FST</a>.</strong> All rights reserved.
         </footer>
     </div>
     <!-- ./wrapper -->

@@ -14,13 +14,19 @@
             font-weight: bold;
         }
 
+        .navbar-brand span {
+            line-height: 1.1;
+            display: inline-block;
+        }
+
         .hero-section {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('<?= base_url('assets/img/hero-bg.jpg') ?>') no-repeat center center;
             background-size: cover;
-            height: 60vh;
+            width: 100%;
             display: flex;
             align-items: center;
             color: white;
+            padding: 60px 0;
         }
 
         .section-title {
@@ -44,9 +50,12 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="<?= base_url('assets/img/logo.png') ?>" alt="BEM FST Logo" style="width: 40px; height: 40px; margin-right: 10px;">
-                BEM FST
+            <a class="navbar-brand text-white d-flex align-items-center gap-2" href="#" style="font-size: 1.1rem;">
+                <img src="<?= base_url('assets/img/logo.png') ?>" alt="BEM FST Logo" style="width: 40px; height: 40px;">
+                <span>
+                    FAKULTAS SAINS<br>
+                    DAN TEKNOLOGI
+                </span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -54,22 +63,45 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Beranda</a>
+                        <a class="nav-link text-white" href="#">Beranda</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="profilDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Profil
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Sejarah</a></li>
+                            <li><a class="dropdown-item" href="#">Visi Misi</a></li>
+                            <li><a class="dropdown-item" href="#">Program Kerja</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="strukturDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Struktur Organisasi
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Dewan Pengurus Harian</a></li>
+                            <li><a class="dropdown-item" href="#">Bidang Agama</a></li>
+                            <li><a class="dropdown-item" href="#">Bidang Humas</a></li>
+                            <li><a class="dropdown-item" href="#">Bidang Kominfo</a></li>
+                            <li><a class="dropdown-item" href="#">Bidang Kesekretariatan</a></li>
+                            <li><a class="dropdown-item" href="#">Bidang PSDM</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Tentang Kami</a>
+                        <a class="nav-link text-white" href="#">Berita</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Program Kerja</a>
+                        <a class="nav-link text-white" href="#">Galeri</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Galeri</a>
+                        <a class="nav-link text-white" href="#">Hubungi Kami</a>
                     </li>
+                    <!-- Menu Login -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Kontak</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('login') ?>">Login</a>
+                        <a class="nav-link text-white" href="<?= base_url('login') ?>">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -77,12 +109,16 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="hero-section" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<?= base_url('assets/img/hero-bg.jpg') ?>') no-repeat center center; background-size: cover; height: 70vh; display: flex; align-items: center;">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <h1 class="display-4">Selamat Datang di BEM FST</h1>
-                    <p class="lead">Badan Eksekutif Mahasiswa Fakultas Sains dan Teknologi Universitas Ubudiyah Indonesia</p>
+                    <h1 class="display-3 fw-bold" style="letter-spacing:2px;">BEM<br>FST UUI</h1>
+                    <p class="lead">Situs Web resmi dari Fakultas Sains Dan Teknologi Universitas Ubudiyah Indonesia</p>
+                    <div class="mt-4">
+                        <a href="#" class="btn btn-danger btn-lg me-2" style="border-radius: 30px; min-width: 120px;">Visi Misi</a>
+                        <a href="#" class="btn btn-dark btn-lg" style="border-radius: 30px; min-width: 120px;">Sejarah</a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -45,6 +45,9 @@ $routes->group('', ['filter' => 'auth'], function ($routes) {
         $routes->delete('/user/delete/(:num)', 'User::delete/$1');
         $routes->get('/user/create-super-admin', 'User::createSuperAdmin');
     });
+
+    // Struktur Organisasi Route
+    $routes->get('/struktur-organisasi', 'StrukturOrganisasi::index');
 });
 
 /*
