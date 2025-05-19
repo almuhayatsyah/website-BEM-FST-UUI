@@ -60,6 +60,50 @@
             color: white !important;
             transform: translateY(-2px);
         }
+
+        .wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-wrapper {
+            flex: 1;
+        }
+
+        .main-footer {
+            margin-top: auto;
+            padding: 1rem;
+            background: #fff;
+            border-top: 1px solid #dee2e6;
+        }
+
+        /* Footer styling for all pages */
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-wrapper {
+            flex: 1 0 auto;
+        }
+
+        .main-footer {
+            flex-shrink: 0;
+            padding: 1rem;
+            background: #fff;
+            border-top: 1px solid #dee2e6;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -89,6 +133,7 @@
             </ul>
         </nav>
         <!-- /.navbar -->
+
 
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -125,33 +170,39 @@
                             </li>
                         <?php endif; ?>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= base_url('berita') ?>" class="nav-link" <?= strpos(current_url(), 'berita') !== false ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-newspaper"></i>
                                 <p>Berita</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= base_url('galeri') ?>" class="nav-link <?= strpos(current_url(), 'galeri') !== false ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-images"></i>
                                 <p>Galeri</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= base_url('program-kerja') ?>" class="nav-link <?= strpos(current_url(), 'program-kerja') !== false ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-tasks"></i>
                                 <p>Program Kerja</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= base_url('hubungi-kami') ?>" class="nav-link <?= strpos(current_url(), 'hubungi-kami') !== false ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-share-alt"></i>
-                                <p>Social Media</p>
+                                <p>Hubungi Kami</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="<?= base_url('struktur-organisasi') ?>" class="nav-link <?= strpos(current_url(), 'struktur-organisasi') !== false ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-sitemap"></i>
                                 <p>Struktur Organisasi</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('sejarah') ?>" class="nav-link <?= strpos(current_url(), 'sejarah') !== false ? 'active' : '' ?>">
+                                <i class="nav-icon fas fa-history"></i>
+                                <p>sejarah & Visi Misi</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -173,10 +224,10 @@
         </div>
 
         <footer class="main-footer">
-            <div class="float-right d-none d-sm-block
+            <div class="float-right d-none d-sm-block">
                 <b>Version</b> 1.0.0
             </div>
-            <strong>Copyright &copy; 2024 <a href=" #">BEM FST</a>.</strong> All rights reserved.
+            <strong>Copyright &copy; 2024 <a href="#">BEM FST</a>.</strong> All rights reserved.
         </footer>
     </div>
     <!-- ./wrapper -->
