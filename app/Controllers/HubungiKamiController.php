@@ -46,7 +46,7 @@ class HubungiKamiController extends BaseController
       'whatsapp' => $this->request->getPost('whatsapp')
     ]);
 
-    return redirect()->to('hubungi-kami')->with('success', 'Data berhasil ditambahkan');
+    return redirect()->to('/admin/hubungi-kami')->with('success', 'Data berhasil ditambahkan');
   }
 
   public function edit($id)

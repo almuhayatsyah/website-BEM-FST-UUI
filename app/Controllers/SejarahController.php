@@ -56,6 +56,6 @@ class SejarahController extends BaseController
     }
 
     $this->sejarahModel->save($data); // menggunakan save() daripada update()
-    return redirect()->to('/sejarah')->with('success', 'Sejarah berhasil diupdate');
+    return redirect()->to('/admin/sejarah')->with('success', 'Sejarah berhasil diupdate');
   }
 }

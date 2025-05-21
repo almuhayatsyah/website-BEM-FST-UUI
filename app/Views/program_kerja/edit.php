@@ -23,7 +23,7 @@
       <div class="card-header">
         <h3 class="card-title">Form Edit Program Kerja</h3>
       </div>
-      <form action="<?= base_url('program-kerja/update/' . $program_kerja['id']) ?>" method="post">
+      <form action="<?= base_url('admin/program-kerja/update/' . $program_kerja['id']) ?>" method="post">
         <div class="card-body">
           <?php if (session()->getFlashdata('errors')) : ?>
             <div class="alert alert-danger alert-dismissible">
@@ -43,9 +43,7 @@
           </div>
 
           <div class="form-group">
-            <label for="tujuan_kegiatan">Tujuan Kegiatan</label>
-            <textarea type="text" class="form-control" id="tujuan_kegiatan" name="tujuan_kegiatan" value="<?= old('tujuan_kegiatan', $program_kerja['tujuan_kegiatan']) ?>" required>
-                </textarea>
+            <label for="tujuan_kegiatan">Tujuan Kegiatan</label> <textarea class="form-control" id="tujuan_kegiatan" name="tujuan_kegiatan" rows="4" required><?= old('tujuan_kegiatan', $program_kerja['tujuan_kegiatan']) ?></textarea>
           </div>
 
           <div class="form-group">
@@ -65,7 +63,7 @@
         </div>
         <div class="card-footer">
           <button type="submit" class="btn btn-primary">Update</button>
-          <a href="<?= base_url('program-kerja') ?>" class="btn btn-default">Kembali</a>
+          <a href="<?= base_url('admin/program-kerja') ?>" class="btn btn-default">Kembali</a>
         </div>
       </form>
     </div>

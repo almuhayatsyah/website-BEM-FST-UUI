@@ -29,8 +29,7 @@
     <div class="card">
       <div class="card-header">
         <h3 class="card-title">Daftar Program Kerja</h3>
-        <div class="card-tools">
-          <a href="<?= base_url('program-kerja/create') ?>" class="btn btn-primary btn-sm">
+        <div class="card-tools"> <a href="<?= base_url('admin/program-kerja/create') ?>" class="btn btn-primary btn-sm">
             <i class="fas fa-plus"></i> Tambah Program Kerja
           </a>
         </div>
@@ -59,11 +58,10 @@
                   <td><?= $pk['sasaran']; ?></td>
                   <td><?= $pk['target_pelaksanaan']; ?></td>
                   <td><?= $pk['keterangan']; ?></td>
-                  <td>
-                    <a href="<?= base_url('program-kerja/edit/' . $pk['id']); ?>" class="btn btn-warning btn-sm">
+                  <td> <a href="<?= base_url('admin/program-kerja/edit/' . $pk['id']); ?>" class="btn btn-warning btn-sm">
                       <i class="fas fa-edit"></i>
                     </a>
-                    <form action="<?= base_url('program-kerja/delete/' . $pk['id']); ?>" method="post" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus program kerja ini?');">
+                    <form action="<?= base_url('admin/program-kerja/delete/' . $pk['id']); ?>" method="post" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus program kerja ini?');">
                       <button type="submit" class="btn btn-danger btn-sm">
                         <i class="fas fa-trash"></i>
                       </button>

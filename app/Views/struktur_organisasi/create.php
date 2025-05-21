@@ -24,7 +24,7 @@
       <div class="card-header">
         <h3 class="card-title">Form Tambah Struktur Organisasi</h3>
       </div>
-      <form action="<?= base_url('struktur-organisasi/store') ?>" method="post" enctype="multipart/form-data">
+      <form action="<?= base_url('admin/struktur-organisasi/store') ?>" method="post" enctype="multipart/form-data">
         <div class="card-body">
           <?php if (session()->getFlashdata('errors')): ?>
             <div class="alert alert-danger">

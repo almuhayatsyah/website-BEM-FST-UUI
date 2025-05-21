@@ -14,7 +14,7 @@
     </div>
   <?php endif; ?>
 
-  <form action="<?= base_url('struktur-organisasi/update/' . $struktur['id']) ?>" method="post" enctype="multipart/form-data">
+  <form action="<?= base_url('admin/struktur-organisasi/update/' . $struktur['id']) ?>" method="post" enctype="multipart/form-data">
     <?= csrf_field() ?>
     <input type="hidden" name="id" value="<?= esc($struktur['id']) ?>">
     <div class="mb-3">

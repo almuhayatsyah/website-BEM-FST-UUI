@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="id">
+<?= $this->extend('layouts/public') ?>
+<?= $this->section('content') ?>
 
 <head>
     <meta charset="UTF-8">
@@ -98,49 +98,6 @@
 
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-                <img src="<?= base_url('assets/img/logo.png') ?>" alt="Logo" width="40" height="40">
-                <span>FAKULTAS SAINS<br>DAN TEKNOLOGI</span>
-            </a>
-            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <!-- Nav Items -->
-                    <li class="nav-item"><a class="nav-link text-white" href="#top">Beranda</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">Profil</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#sejarah">Sejarah</a></li>
-                            <li><a class="dropdown-item" href="#visi-misi">Visi Misi</a></li>
-                            <li><a class="dropdown-item" href="#tentang-kami">Tentang Kami</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#program-kerja">Program Kerja</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">Struktur Organisasi</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Dewan Pengurus Harian</a></li>
-                            <li><a class="dropdown-item" href="#">Bidang Agama</a></li>
-                            <li><a class="dropdown-item" href="#">Bidang Humas</a></li>
-                            <li><a class="dropdown-item" href="#">Bidang Kominfo</a></li>
-                            <li><a class="dropdown-item" href="#">Bidang Kesekretariatan</a></li>
-                            <li><a class="dropdown-item" href="#">Bidang PSDM</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#berita">Berita</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#">Galeri</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#">Hubungi Kami</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="<?= base_url('login') ?>"><i class="fas fa-sign-in-alt"></i> Masuk</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
@@ -148,10 +105,10 @@
                 <div class="col-md-8">
                     <h1 class="animate__animated animate__fadeInDown">BEM FST</h1>
 
-                    <p class="lead">Situs Web resmi dari Fakultas Sains Dan Teknologi Universitas Ubudiyah Indonesia</p>
+                    <p class="lead">Situs Web resmi dari Badan eksekutif Mahasiswa Fakultas Sains Dan Teknologi Universitas Ubudiyah Indonesia</p>
                     <div class="mt-4">
-                        <a href="#" class="btn btn-danger btn-lg rounded-pill me-2">Visi Misi</a>
-                        <a href="#" class="btn btn-outline-light btn-lg rounded-pill">Sejarah</a>
+                        <a href="#visi-misi" class="btn btn-danger btn-lg rounded-pill me-2">Visi Misi</a>
+                        <a href="#sejarah" class="btn btn-outline-light btn-lg rounded-pill">Sejarah</a>
                     </div>
                 </div>
             </div>
@@ -277,106 +234,9 @@
         </div>
     </section>
 
-    <!-- Program Kerja -->
-    <section id="program-kerja" class="py-5">
-        <div class="container">
-            <div class="text-center mb-4">
-                <h2 class="section-title">Program Kerja</h2>
-            </div>
-            <div class="row g-4">
-                <?php if (!empty($program_kerja)): ?>
-                    <?php foreach ($program_kerja as $pk): ?>
-                        <div class="col-md-6">
-                            <div class="card program-card h-100 p-4 shadow-sm rounded-4 bg-white">
-                                <h5 class="card-title text-center text-primary fw-bold mb-3">
-                                    <?= esc($pk['nama_program_kerja']) ?>
-                                </h5>
 
-                                <div class="table-responsive">
-                                    <table class="table table-borderless mb-0">
-                                        <tbody>
-                                            <tr>
-                                                <th class="text-danger">Tujuan</th>
-                                                <td><?= esc($pk['tujuan_kegiatan']) ?></td>
-                                            </tr>
-                                            <tr>
-                                                <th class="text-primary">Sasaran</th>
-                                                <td><?= esc($pk['sasaran']) ?></td>
-                                            </tr>
-                                            <tr>
-                                                <th class="text-warning">Target</th>
-                                                <td><?= esc($pk['target_pelaksanaan']) ?></td>
-                                            </tr>
-                                            <tr>
-                                                <th class="text-muted">Keterangan</th>
-                                                <td><?= esc($pk['keterangan']) ?></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+    <!-- baca beri -->
 
-                        </div>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <div class="alert alert-info">Belum ada program kerja yang terdaftar.</div>
-                <?php endif; ?>
-            </div>
-        </div>
-    </section>
-
-
-
-
-    <!-- Struktur Organisasi -->
-    <section id="StrukturOrganisasi" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="section-title">Struktur Organisasi</h2>
-            <div class="row">
-                <?php if (!empty($struktur_organisasi)): ?>
-                    <?php foreach ($struktur_organisasi as $so): ?>
-                        <div class="col-md-4 mb-4">
-                            <div class="card h-100">
-                                <img src="<?= base_url('uploads/struktur_organisasi/' . $so['gambar']) ?>" class="card-img-top" alt="<?= esc($so['nama']) ?>">
-                                <div class="card-body">
-                                    <h5 class="card-title"><?= esc($so['nama']) ?></h5>
-                                    <p class="card-text"><?= esc($so['jabatan']) ?> - <?= esc($so['divisi']) ?></p>
-                                    <a href="<?= base_url('struktur-organisasi/detail/' . $so['id']) ?>" class="btn btn-primary btn-sm">Detail</a>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <div class="alert alert-info">Belum ada struktur organisasi yang terdaftar.</div>
-                <?php endif; ?>
-            </div>
-        </div>
-    </section>
-
-    <!-- Berita -->
-    <section id="berita" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="section-title">Berita Terbaru</h2>
-            <div class="row">
-                <?php if (!empty($berita)): ?>
-                    <?php foreach ($berita as $b): ?>
-                        <div class="col-md-4 mb-4">
-                            <div class="card h-100">
-                                <img src="<?= base_url('uploads/berita/' . $b['gambar']) ?>" class="card-img-top" alt="<?= esc($b['judul']) ?>">
-                                <div class="card-body">
-                                    <h5 class="card-title"><?= esc($b['judul']) ?></h5>
-                                    <p class="card-text"><?= character_limiter(strip_tags($b['deskripsi']), 120) ?></p>
-                                    <a href="<?= base_url('berita/detail/' . $b['id']) ?>" class="btn btn-primary btn-sm">Baca Selengkapnya</a>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <div class="alert alert-info">Belum ada berita yang terdaftar.</div>
-                <?php endif; ?>
-            </div>
-        </div>
-    </section>
 
 
     <!-- Footer -->
@@ -397,7 +257,7 @@
                 <div class="col-md-4">
                     <h5>Media Sosial</h5>
                     <div class="d-flex gap-2">
-                        <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="https://www.instagram.com/bemfst_uui"><i class="fab fa-instagram fa-2x"></i></a>
                         <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
                         <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
                     </div>
@@ -416,3 +276,4 @@
 </body>
 
 </html>
+<?= $this->endSection() ?>

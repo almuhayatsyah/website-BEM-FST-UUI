@@ -1,5 +1,4 @@
 <?= $this->extend('dashboard/index') ?>
-
 <?= $this->section('content') ?>
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -64,7 +63,7 @@
           <div class="icon">
             <i class="fas fa-tasks"></i>
           </div>
-          <a href="program-kerja" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="<?= base_url('admin/program-kerja') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <div class="col-lg-3 col-6">

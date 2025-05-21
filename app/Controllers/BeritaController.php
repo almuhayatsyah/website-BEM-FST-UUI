@@ -14,6 +14,7 @@ class BeritaController extends BaseController
   }
 
   public function index()
+
   {
     $data = [
       'title' => 'Berita',
@@ -51,7 +52,7 @@ class BeritaController extends BaseController
       'tgl_input' => date('Y-m-d H:i:s')
     ]);
 
-    return redirect()->to('berita')->with('success', 'Berita berhasil ditambahkan');
+    return redirect()->to('admin/berita')->with('success', 'Berita berhasil ditambahkan');
   }
 
   public function edit($id)
@@ -107,5 +108,33 @@ class BeritaController extends BaseController
 
     $this->beritaModel->delete($id);
     return redirect()->to('/berita')->with('success', 'Berita berhasil dihapus');
+  }
+
+  // Method untuk menampilkan berita di frontend
+  public function show_berita()
+  {
+    $data = [
+      'title' => 'Berita BEM FST',
+      'berita' => $this->beritaModel->orderBy('tgl_input', 'DESC')->findAll()
+    ];
+
+    return view('home/page_berita', $data);
+  }
+
+  // Method untuk menampilkan detail berita
+  public function detail($id)
+  {
+    $berita = $this->beritaModel->find($id);
+
+    if (!$berita) {
+      return redirect()->to('/berita')->with('error', 'Berita tidak ditemukan');
+    }
+
+    $data = [
+      'title' => $berita['judul'],
+      'berita' => $berita
+    ];
+
+    return view('home/detail_berita', $data);
   }
 }

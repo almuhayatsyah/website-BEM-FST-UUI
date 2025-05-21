@@ -53,11 +53,13 @@ class GaleriController extends BaseController
             'upload' => $namaFoto
         ]);
 
-        return redirect()->to('galeri')->with('success', 'Data berhasil ditambahkan');
+        return redirect()->to('admin/galeri')->with('success', 'Data berhasil ditambahkan');
     }
 
     public function edit($id)
     {
+        // Hilangkan pengecekan session jika ingin halaman publik (frontend) bisa akses
+
         $data = [
             'title' => 'Edit Galeri',
             'galeri' => $this->galeriModel->find($id)
@@ -66,9 +68,9 @@ class GaleriController extends BaseController
         return view('galeri/edit', $data);
     }
 
+
     public function update($id)
     {
-        // Validasi input
         $rules = [
             'judul' => 'required',
             'deskripsi' => 'required',
@@ -117,5 +119,30 @@ class GaleriController extends BaseController
         $this->galeriModel->delete($id);
 
         return redirect()->to('/galeri')->with('success', 'Data berhasil dihapus');
+    }
+
+    // Method untuk tampilan frontend
+    public function show_galeri()
+    {
+        $data = [
+            'title' => 'Galeri BEM FST',
+            'galeri' => $this->galeriModel->orderBy('tgl_input', 'DESC')->findAll()
+        ];
+        return view('home/page_galeri', $data);
+    }
+
+    public function detail($id)
+    {
+        $galeri = $this->galeriModel->find($id);
+
+        if (!$galeri) {
+            return redirect()->to('/galeri')->with('error', 'Data tidak ditemukan');
+        }
+
+        $data = [
+            'title' => $galeri['judul'],
+            'galeri' => $galeri
+        ];
+        return view('home/detail_galeri', $data);
     }
 }

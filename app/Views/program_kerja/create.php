@@ -23,7 +23,7 @@
       <div class="card-header">
         <h3 class="card-title">Form Tambah Program Kerja</h3>
       </div>
-      <form action="<?= base_url('program-kerja/store') ?>" method="post">
+      <form action="<?= base_url('admin/program-kerja/store') ?>" method="post">
         <div class="card-body">
           <?php if (session()->getFlashdata('errors')) : ?>
             <div class="alert alert-danger alert-dismissible">
@@ -44,7 +44,7 @@
 
           <div class="form-group">
             <label for="tujuan_kegiatan">Tujuan Kegiatan</label>
-            <textarea class="form-control" id="tujuan_kegiatan" name="tujuan_kegiatan" rows="4" required><?= old('tujua_kegiatan') ?></textarea>
+            <textarea class="form-control" id="tujuan_kegiatan" name="tujuan_kegiatan" rows="4" required><?= old('tujuan_kegiatan') ?></textarea>
           </div>
 
           <div class="form-group">
@@ -64,7 +64,7 @@
         </div>
         <div class="card-footer">
           <button type="submit" class="btn btn-primary">Simpan</button>
-          <a href="<?= base_url('program-kerja') ?>" class="btn btn-default">Kembali</a>
+          <a href="<?= base_url('admin/program-kerja') ?>" class="btn btn-default">Kembali</a>
         </div>
       </form>
     </div>

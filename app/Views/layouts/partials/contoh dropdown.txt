@@ -1,0 +1,11 @@
+<li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">Struktur Organisasi</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Dewan Pengurus Harian</a></li>
+            <li><a class="dropdown-item" href="#">Bidang Agama</a></li>
+            <li><a class="dropdown-item" href="#">Bidang Humas</a></li>
+            <li><a class="dropdown-item" href="#">Bidang Kominfo</a></li>
+            <li><a class="dropdown-item" href="#">Bidang Kesekretariatan</a></li>
+            <li><a class="dropdown-item" href="#">Bidang PSDM</a></li>
+          </ul>
+        </li>

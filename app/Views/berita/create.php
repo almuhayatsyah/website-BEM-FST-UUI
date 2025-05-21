@@ -24,7 +24,7 @@
         <h3 class="card-title">Form Tambah Berita</h3>
       </div>
       <div class="card-body">
-        <form action="<?= base_url('berita/store') ?>" method="POST" enctype="multipart/form-data">
+        <form action="<?= base_url('admin/berita/store') ?>" method="POST" enctype="multipart/form-data">
           <?= csrf_field() ?>
 
           <div class="form-group">

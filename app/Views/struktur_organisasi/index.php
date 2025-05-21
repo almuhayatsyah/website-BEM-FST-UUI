@@ -28,8 +28,7 @@
     <div class="card">
       <div class="card-header">
         <h3 class="card-title">Daftar Struktur Organisasi</h3>
-        <div class="card-tools">
-          <a href="<?= base_url('struktur-organisasi/create') ?>" class="btn btn-primary btn-sm">
+        <div class="card-tools"> <a href="<?= base_url('admin/struktur-organisasi/create') ?>" class="btn btn-primary btn-sm">
             <i class="fas fa-plus"></i> Tambah Anggota
           </a>
         </div>
@@ -60,9 +59,8 @@
                       <img src="<?= base_url('uploads/struktur_organisasi/' . $struktur['gambar']) ?>" width="80" alt="Foto">
                     <?php endif; ?>
                   </td>
-                  <td>
-                    <a href="<?= base_url('struktur-organisasi/edit/' . $struktur['id']) ?>" class="btn btn-warning btn-sm">Edit</a>
-                    <form action="<?= base_url('struktur-organisasi/delete/' . $struktur['id']) ?>" method="post" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus?')">
+                  <td> <a href="<?= base_url('admin/struktur-organisasi/edit/' . $struktur['id']) ?>" class="btn btn-warning btn-sm">Edit</a>
+                    <form action="<?= base_url('admin/struktur-organisasi/delete/' . $struktur['id']) ?>" method="post" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus?')">
                       <?= csrf_field() ?>
                       <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
                     </form>

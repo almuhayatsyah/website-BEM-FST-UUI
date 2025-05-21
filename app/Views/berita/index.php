@@ -29,7 +29,7 @@
       <div class="card-header">
         <h3 class="card-title">Daftar Berita</h3>
         <div class="card-tools">
-          <a href="<?= base_url('berita/create') ?>" class="btn btn-primary btn-sm">
+          <a href="<?= base_url('admin/berita/create') ?>" class="btn btn-primary btn-sm">
             <i class="fas fa-plus"></i> Tambah Berita
           </a>
         </div>
@@ -64,10 +64,10 @@
                   <td><?= date('d-m-Y', strtotime($b['created_at'])); ?></td>
                   <td><?= date('d-m-Y', strtotime($b['updated_at'])); ?></td>
                   <td class="text-center">
-                    <a href="<?= base_url('berita/edit/' . $b['id']) ?>" class="btn btn-warning btn-sm">
+                    <a href="<?= base_url('admin/berita/edit/' . $b['id']) ?>" class="btn btn-warning btn-sm">
                       <i class="fas fa-edit"></i>
                     </a>
-                    <form action="<?= base_url('berita/delete/' . $b['id']) ?>" method="POST" class="d-inline">
+                    <form action="<?= base_url('admin/berita/delete/' . $b['id']) ?>" method="POST" class="d-inline">
                       <?= csrf_field() ?>
                       <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus berita ini?')">
                         <i class="fas fa-trash"></i>

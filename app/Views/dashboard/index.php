@@ -170,39 +170,37 @@
                             </li>
                         <?php endif; ?>
                         <li class="nav-item">
-                            <a href="<?= base_url('berita') ?>" class="nav-link" <?= strpos(current_url(), 'berita') !== false ? 'active' : '' ?>">
+                            <a href="<?= base_url('admin/berita') ?>" class="nav-link" <?= strpos(current_url(), 'berita') !== false ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-newspaper"></i>
                                 <p>Berita</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('galeri') ?>" class="nav-link <?= strpos(current_url(), 'galeri') !== false ? 'active' : '' ?>">
+                            <a href="<?= base_url('admin/galeri') ?>" class="nav-link <?= strpos(current_url(), 'galeri') !== false ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-images"></i>
                                 <p>Galeri</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('program-kerja') ?>" class="nav-link <?= strpos(current_url(), 'program-kerja') !== false ? 'active' : '' ?>">
+                        <li class="nav-item"> <a href="<?= base_url('admin/program-kerja') ?>" class="nav-link <?= strpos(current_url(), 'program-kerja') !== false ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-tasks"></i>
                                 <p>Program Kerja</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('hubungi-kami') ?>" class="nav-link <?= strpos(current_url(), 'hubungi-kami') !== false ? 'active' : '' ?>">
+                            <a href="<?= base_url('admin/hubungi-kami') ?>" class="nav-link <?= strpos(current_url(), 'hubungi-kami') !== false ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-share-alt"></i>
                                 <p>Hubungi Kami</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('struktur-organisasi') ?>" class="nav-link <?= strpos(current_url(), 'struktur-organisasi') !== false ? 'active' : '' ?>">
+                        <li class="nav-item"> <a href="<?= base_url('admin/struktur-organisasi') ?>" class="nav-link <?= strpos(current_url(), 'struktur-organisasi') !== false ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-sitemap"></i>
                                 <p>Struktur Organisasi</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('sejarah') ?>" class="nav-link <?= strpos(current_url(), 'sejarah') !== false ? 'active' : '' ?>">
+                            <a href="<?= base_url('admin/sejarah') ?>" class="nav-link <?= strpos(current_url(), 'sejarah') !== false ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-history"></i>
-                                <p>sejarah & Visi Misi</p>
+                                <p>Sejarah & Visi Misi</p>
                             </a>
                         </li>
                         <li class="nav-item">

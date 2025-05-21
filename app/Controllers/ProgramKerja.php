@@ -49,7 +49,7 @@ class ProgramKerja extends BaseController
     ];
 
     $this->programKerjaModel->insert($data);
-    return redirect()->to('/program-kerja')->with('success', 'Program kerja berhasil ditambahkan');
+    return redirect()->to('/admin/program-kerja')->with('success', 'Program kerja berhasil ditambahkan');
   }
 
   public function edit($id)
@@ -82,7 +82,7 @@ class ProgramKerja extends BaseController
     ];
 
     $this->programKerjaModel->update($id, $data);
-    return redirect()->to('/program-kerja')->with('success', 'Program kerja berhasil diperbarui');
+    return redirect()->to('/admin/program-kerja')->with('success', 'Program kerja berhasil diperbarui');
   }
 
   public function delete($id)
@@ -91,6 +91,6 @@ class ProgramKerja extends BaseController
       return redirect()->to('/login');
     }
     $this->programKerjaModel->delete($id);
-    return redirect()->to('/program-kerja')->with('success', 'Program kerja berhasil dihapus');
+    return redirect()->to('/admin/program-kerja')->with('success', 'Program kerja berhasil dihapus');
   }
 }

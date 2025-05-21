@@ -15,6 +15,7 @@ class StrukturOrganisasiController extends BaseController
 
   public function index()
   {
+    // Hilangkan pengecekan session jika ingin halaman publik (frontend) bisa akses
     $data = [
       'title' => 'Struktur Organisasi',
       'struktur_organisasi' => $this->strukturOrganisasiModel->findAll()
@@ -58,10 +59,9 @@ class StrukturOrganisasiController extends BaseController
       'divisi' => $this->request->getPost('divisi'),
       'gambar' => $namaFoto
     ];
-
     $this->strukturOrganisasiModel->save($data);
 
-    return redirect()->to('/struktur-organisasi')->with('success', 'Data berhasil ditambahkan');
+    return redirect()->to('/admin/struktur-organisasi')->with('success', 'Data berhasil ditambahkan');
   }
 
   public function edit($id)
@@ -113,10 +113,9 @@ class StrukturOrganisasiController extends BaseController
       }
       $data['gambar'] = $namaFoto;
     }
-
     $this->strukturOrganisasiModel->save($data);
 
-    return redirect()->to('/struktur-organisasi')->with('success', 'Data berhasil diupdate');
+    return redirect()->to('/admin/struktur-organisasi')->with('success', 'Data berhasil diupdate');
   }
 
   public function delete($id)
@@ -128,7 +127,17 @@ class StrukturOrganisasiController extends BaseController
         unlink($oldFile);
       }
     }
+
     $this->strukturOrganisasiModel->delete($id);
-    return redirect()->to('/struktur-organisasi')->with('success', 'Data berhasil dihapus');
+    return redirect()->to('/admin/struktur-organisasi')->with('success', 'Data berhasil dihapus');
+  }
+
+  public function detail($id)
+  {
+    $data = [
+      'title' => 'Detail Anggota',
+      'struktur' => $this->strukturOrganisasiModel->find($id)
+    ];
+    return view('struktur_organisasi/detail', $data);
   }
 }

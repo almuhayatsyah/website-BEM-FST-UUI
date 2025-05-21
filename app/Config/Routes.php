@@ -12,28 +12,81 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-// The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
-// where controller filters or CSRF protection are bypassed.
-// If you don't want to define all routes, please use the Auto Routing (Improved).
-// Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
-// $routes->setAutoRoute(false);
+$routes->setAutoRoute(true);
 
 /*
 * --------------------------------------------------------------------
 * Route Definitions
 * --------------------------------------------------------------------
- */
+*/
 
-// We get a performance increase by specifying the default
-// route since we don't have to scan directories.
+// Public routes
 $routes->get('/', 'Home::index');
-$routes->get('/login', 'Auth::login');
-$routes->post('/login', 'Auth::login');
-$routes->get('/logout', 'Auth::logout');
+$routes->get('login', 'Auth::login');
+$routes->post('login', 'Auth::login');
+$routes->get('logout', 'Auth::logout');
 
-// Protected Routes
-$routes->group('', ['filter' => 'auth'], function ($routes) {
-    $routes->get('/dashboard', 'Dashboard::index');
+
+// ||| Public routes|||
+// Public Program Kerja route - pastikan ini di luar group admin
+$routes->get('program-kerja/public', 'Home::programKerja');
+// Public Struktur Organisasi route - pastikan ini di luar group admin
+$routes->get('struktur-organisasi/public', 'Home::strukturOrganisasi');
+// public berita route
+$routes->get('berita', 'Home::berita');
+// public galeri route
+$routes->get('galeri', 'Home::galeri');
+
+
+// Frontend routes
+$routes->get('galeri', 'GaleriController::show_galeri');
+$routes->get('galeri/detail/(:num)', 'GaleriController::detail/$1');
+
+
+// Admin routes
+$routes->group('admin', ['filter' => 'auth'], function ($routes) {
+    $routes->get('dashboard', 'Dashboard::index');
+
+    // Program Kerja Routes untuk Admin Panel
+    $routes->get('program-kerja', 'ProgramKerja::index');
+    $routes->get('program-kerja/create', 'ProgramKerja::create');
+    $routes->post('program-kerja/store', 'ProgramKerja::store');
+    $routes->get('program-kerja/edit/(:num)', 'ProgramKerja::edit/$1');
+    $routes->post('program-kerja/update/(:num)', 'ProgramKerja::update/$1');
+    $routes->post('program-kerja/delete/(:num)', 'ProgramKerja::delete/$1');
+
+    // Berita Routes
+    $routes->get('berita/detail/(:num)', 'BeritaController::detail/$1');
+    $routes->get('berita/create', 'BeritaController::create');
+    $routes->post('berita/store', 'BeritaController::store');
+    $routes->get('berita/edit/(:num)', 'BeritaController::edit/$1');
+    $routes->post('berita/update/(:num)', 'BeritaController::update/$1');
+    $routes->post('berita/delete/(:num)', 'BeritaController::delete/$1');
+
+    // Galeri Routes
+    $routes->get('galeri', 'GaleriController::index');
+    $routes->get('galeri/create', 'GaleriController::create');
+    $routes->post('galeri/store', 'GaleriController::store');
+    $routes->get('galeri/edit/(:num)', 'GaleriController::edit/$1');
+    $routes->post('galeri/update/(:num)', 'GaleriController::update/$1');
+    $routes->post('galeri/delete/(:num)', 'GaleriController::delete/$1');
+
+    // Sejarah Routes
+    $routes->get('sejarah', 'SejarahController::index');
+    $routes->post('sejarah/update', 'SejarahController::update');
+    $routes->get('sejarah/create', 'SejarahController::create');
+    $routes->post('sejarah/store', 'SejarahController::store');
+    $routes->get('sejarah/edit/(:num)', 'SejarahController::edit/$1');
+    $routes->post('sejarah/delete/(:num)', 'SejarahController::delete/$1');
+
+    // Visi Misi Routes
+    $routes->get('visimisi', 'VisiMisiController::index');
+    $routes->get('visimisi/create', 'VisiMisiController::update');
+    $routes->get('visimisi/create', 'VisiMisiController::create');
+    $routes->post('visimisi/store', 'VisiMisiController::store');
+    $routes->get('visimisi/edit/(:num)', 'VisiMisiController::edit/$1');
+    $routes->post('visimisi/delete/(:num)', 'VisiMisiController::delete/$1');
+
 
     // User Management Routes (Super Admin Only)
     $routes->group('', ['filter' => 'auth:super_admin'], function ($routes) {
@@ -54,32 +107,8 @@ $routes->group('', ['filter' => 'auth'], function ($routes) {
     $routes->post('struktur-organisasi/update/(:num)', 'StrukturOrganisasiController::update/$1');
     $routes->post('struktur-organisasi/delete/(:num)', 'StrukturOrganisasiController::delete/$1');
 
-    // Program Kerja Routes
-    $routes->get('program-kerja', 'ProgramKerja::index');
-    $routes->get('program-kerja/create', 'ProgramKerja::create');
-    $routes->post('program-kerja/store', 'ProgramKerja::store');
-    $routes->get('program-kerja/edit/(:num)', 'ProgramKerja::edit/$1');
-    $routes->post('program-kerja/update/(:num)', 'ProgramKerja::update/$1');
-    $routes->post('program-kerja/delete/(:num)', 'ProgramKerja::delete/$1');
 
-
-    // berita routes
-    $routes->get('berita', 'BeritaController::index');
-    $routes->get('berita/create', 'BeritaController::create');
-    $routes->post('berita/store', 'BeritaController::store');
-    $routes->get('berita/edit/(:num)', 'BeritaController::edit/$1');
-    $routes->post('berita/update/(:num)', 'BeritaController::update/$1');
-    $routes->post('berita/delete/(:num)', 'BeritaController::delete/$1');
-
-    // galeri routes
-    $routes->get('galeri', 'GaleriController::index');
-    $routes->get('galeri/create', 'GaleriController::create');
-    $routes->post('galeri/store', 'GaleriController::store');
-    $routes->get('galeri/edit/(:num)', 'GaleriController::edit/$1');
-    $routes->post('galeri/update/(:num)', 'GaleriController::update/$1');
-    $routes->post('galeri/delete/(:num)', 'GaleriController::delete/$1');
-
-    // Hubungi Kami routes
+    // Hubungi Kami Routes
     $routes->group('hubungi-kami', function ($routes) {
         $routes->get('/', 'HubungiKamiController::index');
         $routes->get('create', 'HubungiKamiController::create');
@@ -89,26 +118,7 @@ $routes->group('', ['filter' => 'auth'], function ($routes) {
         $routes->post('delete/(:num)', 'HubungiKamiController::delete/$1');
     });
 
-    // sejarah routes
-    $routes->get('sejarah', 'SejarahController::index');
-    $routes->post('sejarah/update', 'SejarahController::update');
-    $routes->get('sejarah/create', 'SejarahController::create');
-    $routes->post('sejarah/store', 'SejarahController::store');
-    $routes->get('sejarah/edit/(:num)', 'SejarahController::edit/$1');
-    $routes->post('sejarah/delete/(:num)', 'SejarahController::delete/$1');
-
-
-    // visi-misi routes
-    $routes->get('visi-misi', 'VisiMisi::index');
-    $routes->get('visi-misi/create', 'VisiMisi::create');
-    $routes->post('visi-misi/store', 'VisiMisi::store');
-    $routes->get('visi-misi/edit/(:num)', 'VisiMisi::edit/$1');
-    $routes->post('visi-misi/update/(:num)', 'VisiMisi::update/$1');
-    $routes->post('visi-misi/delete/(:num)', 'VisiMisi::delete/$1');
-
-    // peraturan routes
-
-    // Pengaturan routes
+    // pengaturan routes
     $routes->group('pengaturan', function ($routes) {
         $routes->get('/', 'PengaturanController::index');
         $routes->post('update-profile', 'PengaturanController::updateProfile');

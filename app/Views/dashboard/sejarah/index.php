@@ -1,4 +1,4 @@
-<?= $this->extend('dashboard/index') ?>
+<?= $this->extend('dashboard_admin/index') ?>
 
 <?= $this->section('content') ?>
 <div class="content-header">
