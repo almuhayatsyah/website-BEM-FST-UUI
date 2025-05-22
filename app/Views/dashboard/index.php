@@ -170,7 +170,7 @@
                             </li>
                         <?php endif; ?>
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/berita') ?>" class="nav-link" <?= strpos(current_url(), 'berita') !== false ? 'active' : '' ?>">
+                            <a href="<?= base_url('admin/berita') ?>" class="nav-link <?= strpos(current_url(), 'admin/berita') !== false ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-newspaper"></i>
                                 <p>Berita</p>
                             </a>

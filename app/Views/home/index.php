@@ -250,7 +250,7 @@
                 <div class="col-md-4">
                     <h5>Kontak</h5>
                     <ul class="list-unstyled">
-                        <li><i class="fas fa-envelope"></i> bemfst@unud.ac.id</li>
+                        <li><i class="fas fa-envelope"></i> bemfst@gmai.com</li>
                         <li><i class="fas fa-phone"></i> +62 123 4567 890</li>
                     </ul>
                 </div>
@@ -260,6 +260,8 @@
                         <a href="https://www.instagram.com/bemfst_uui"><i class="fab fa-instagram fa-2x"></i></a>
                         <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
                         <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a href="#"><i class="fab fa-tik-tok fa-2x"></i></a>
+                        <a href="#"><i class="bi bi-tiktok"></i></a>
                     </div>
                 </div>
             </div>

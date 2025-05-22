@@ -9,7 +9,7 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
-          <li class="breadcrumb-item"><a href="<?= base_url('galeri') ?>">Galeri</a></li>
+          <li class="breadcrumb-item"><a href="<?= base_url('admin/galeri') ?>">Galeri</a></li>
           <li class="breadcrumb-item active">Tambah</li>
         </ol>
       </div>
@@ -21,7 +21,7 @@
   <div class="container-fluid">
     <div class="card">
       <div class="card-body">
-        <form action="<?= base_url('galeri/store') ?>" method="POST" enctype="multipart/form-data">
+        <form action="<?= base_url('admin/galeri/store') ?>" method="POST" enctype="multipart/form-data">
           <?= csrf_field() ?>
 
           <div class="form-group">
@@ -41,6 +41,15 @@
           </div>
 
           <div class="form-group">
+            <label for="tgl_input">Tanggal Input</label>
+            <input type="text" class="form-control <?= session('errors.tgl_input') ? 'is-invalid' : '' ?>" id="tgl_input" name="tgl_input" value="<?= old('tgl_input') ?>" readonly>
+            <?php if (session('errors.tgl_input')) : ?>
+              <div class="invalid-feedback"><?= session('errors.tgl_input') ?></div>
+            <?php endif; ?>
+          </div>
+
+
+          <div class="form-group">
             <label for="upload">Foto</label>
             <div class="custom-file">
               <input type="file" class="custom-file-input <?= session('errors.upload') ? 'is-invalid' : '' ?>" id="upload" name="upload">
@@ -52,7 +61,7 @@
           </div>
 
           <button type="submit" class="btn btn-primary">Simpan</button>
-          <a href="<?= base_url('galeri') ?>" class="btn btn-secondary">Kembali</a>
+          <a href="<?= base_url('admin/galeri') ?>" class="btn btn-secondary">Kembali</a>
         </form>
       </div>
     </div>

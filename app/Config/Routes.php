@@ -33,12 +33,13 @@ $routes->get('program-kerja/public', 'Home::programKerja');
 // Public Struktur Organisasi route - pastikan ini di luar group admin
 $routes->get('struktur-organisasi/public', 'Home::strukturOrganisasi');
 // public berita route
-$routes->get('berita', 'Home::berita');
+$routes->get('berita', 'BeritaController::show_berita');
 // public galeri route
 $routes->get('galeri', 'Home::galeri');
 
 
-// Frontend routes
+// Frontend routes (hapus atau komen salah satu yang duplikat)
+// $routes->get('galeri', 'Home::galeri');  // hapus atau komen ini
 $routes->get('galeri', 'GaleriController::show_galeri');
 $routes->get('galeri/detail/(:num)', 'GaleriController::detail/$1');
 
@@ -56,6 +57,7 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->post('program-kerja/delete/(:num)', 'ProgramKerja::delete/$1');
 
     // Berita Routes
+    $routes->get('berita', 'BeritaController::index');
     $routes->get('berita/detail/(:num)', 'BeritaController::detail/$1');
     $routes->get('berita/create', 'BeritaController::create');
     $routes->post('berita/store', 'BeritaController::store');
@@ -70,6 +72,7 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->get('galeri/edit/(:num)', 'GaleriController::edit/$1');
     $routes->post('galeri/update/(:num)', 'GaleriController::update/$1');
     $routes->post('galeri/delete/(:num)', 'GaleriController::delete/$1');
+    $routes->get('galeri/detail/(:num)', 'GaleriController::detail/$1');
 
     // Sejarah Routes
     $routes->get('sejarah', 'SejarahController::index');

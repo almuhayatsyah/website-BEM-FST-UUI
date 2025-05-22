@@ -10,7 +10,7 @@
         <p class="lead">Galeri foto kegiatan BEM FST</p>
       </div>
       <div class="col-md-6 text-center">
-        <img src="<?= base_url('assets/galeri.jpg') ?>" alt="Galeri BEM FST" class="img-fluid rounded-4 shadow-lg" style="max-height: 320px;">
+        <img src="<?= base_url('assets/img/galeri.jpg') ?>" alt="Galeri BEM FST" class="img-fluid rounded-4 shadow-lg" style="max-height: 320px;">
       </div>
     </div>
   </div>
@@ -19,7 +19,7 @@
 <!-- galeri Section -->
 <section class="galeri-section py-5">
   <div class="container">
-    <div class="row g-4">
+    <div class="row g-4">a
       <?php if (!empty($galeri)) : ?>
         <?php foreach ($galeri as $g) : ?>
           <div class="col-lg-4 col-md-6">

@@ -29,7 +29,7 @@
       <div class="card-header">
         <h3 class="card-title">Daftar Galeri</h3>
         <div class="card-tools">
-          <a href="<?= base_url('galeri/create') ?>" class="btn btn-primary btn-sm">
+          <a href="<?= base_url('admin/galeri/create') ?>" class="btn btn-primary btn-sm">
             <i class="fas fa-plus"></i> Tambah Galeri
           </a>
         </div>
@@ -64,10 +64,10 @@
                   <td><?= date('d-m-Y', strtotime($g['created_at'])); ?></td>
                   <td><?= date('d-m-Y', strtotime($g['updated_at'])); ?></td>
                   <td class="text-center">
-                    <a href="<?= base_url('galeri/edit/' . $g['id']) ?>" class="btn btn-warning btn-sm">
+                    <a href="<?= base_url('admin/galeri/edit/' . $g['id']) ?>" class="btn btn-warning btn-sm">
                       <i class="fas fa-edit"></i>
                     </a>
-                    <form action="<?= base_url('galeri/delete/' . $g['id']) ?>" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+                    <form action="<?= base_url('admin/galeri/delete/' . $g['id']) ?>" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
                       <?= csrf_field() ?>
                       <button type="submit" class="btn btn-danger btn-sm">
                         <i class="fas fa-trash"></i>

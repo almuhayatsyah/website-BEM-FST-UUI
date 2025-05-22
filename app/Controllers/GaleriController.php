@@ -50,7 +50,8 @@ class GaleriController extends BaseController
         $this->galeriModel->save([
             'judul' => $this->request->getPost('judul'),
             'deskripsi' => $this->request->getPost('deskripsi'),
-            'upload' => $namaFoto
+            'upload' => $namaFoto,
+            'tgl_input' => date('Y-m-d H:i:s')
         ]);
 
         return redirect()->to('admin/galeri')->with('success', 'Data berhasil ditambahkan');
@@ -58,14 +59,11 @@ class GaleriController extends BaseController
 
     public function edit($id)
     {
-        // Hilangkan pengecekan session jika ingin halaman publik (frontend) bisa akses
-
         $data = [
             'title' => 'Edit Galeri',
             'galeri' => $this->galeriModel->find($id)
         ];
-
-        return view('galeri/edit', $data);
+        return view('admin/galeri/edit', $data);
     }
 
 
@@ -102,7 +100,7 @@ class GaleriController extends BaseController
         }
 
         $this->galeriModel->update($id, $data);
-        return redirect()->to('/galeri')->with('success', 'Data berhasil diupdate');
+        return redirect()->to('admin/galeri')->with('success', 'Data berhasil diupdate');
     }
 
     public function delete($id)

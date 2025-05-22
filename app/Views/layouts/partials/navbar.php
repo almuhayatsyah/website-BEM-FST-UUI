@@ -3,8 +3,7 @@ $current_url = current_url();
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
   <div class="container">
-    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-
+    <a class="navbar-brand d-flex align-items-center gap-2" href="<?= base_url('/') ?>">
       <img src="<?= base_url('assets/img/logo.png') ?>" alt="Logo" width="40" height="40">
       <span>FAKULTAS SAINS<br>DAN TEKNOLOGI</span>
     </a>

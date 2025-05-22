@@ -95,7 +95,7 @@ class BeritaController extends BaseController
     }
 
     $this->beritaModel->update($id, $data);
-    return redirect()->to('/berita')->with('success', 'Berita berhasil diupdate');
+    return redirect()->to('admin/berita')->with('success', 'Berita berhasil diupdate');
   }
 
   public function delete($id)
@@ -107,7 +107,7 @@ class BeritaController extends BaseController
     }
 
     $this->beritaModel->delete($id);
-    return redirect()->to('/berita')->with('success', 'Berita berhasil dihapus');
+    return redirect()->to('admin/berita')->with('success', 'Berita berhasil dihapus');
   }
 
   // Method untuk menampilkan berita di frontend
